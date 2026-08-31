@@ -13,7 +13,10 @@
     --cobalt:     #0047ab;
     --cobalt-ink: #063a82;
     --globe-green: #2f6b46;
+    --sage-light: #d8e6dd;
     --pale-blue: #eef1f7;
+    --butter:     #faf3d9;
+    --butter-ink: #8a6d1f;
     --ink:        #1d2b26;
     --ink-soft:   #3d4d47;
     --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
@@ -290,9 +293,9 @@
   #drawing-grid .card__cap .m{ display:none; }
 
   /* ---------- editorial hobby sections ---------- */
-  .hobby{ background:var(--sand); }
+  .hobby{ background:var(--sage-light); }
   .hobby--painting{ background:var(--foam); }
-  .hobby--product{ background:var(--pale-blue); }
+  .hobby--product{ background:var(--butter); }
 
   .hobby__intro{ max-width:100%; font-size:1.05rem; text-wrap:balance; }
   .hobby .section-head{ margin-bottom:0.4rem; }
@@ -305,6 +308,7 @@
   .product__text h2{
     font-size:clamp(1.25rem, 1.05rem + 1vw, 1.75rem);
     margin:0.5rem 0 1.1rem;
+    color:var(--butter-ink);
   }
   .product__text .hobby__intro a{
     color:var(--cobalt); text-decoration:underline; text-underline-offset:2px;
