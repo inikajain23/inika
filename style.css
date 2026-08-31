@@ -265,6 +265,20 @@
   .masonry--square .card__fill{ aspect-ratio:1/1; }
   .masonry--square .card--feature .card__fill{ aspect-ratio:3/4; }
 
+  .video-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.6rem;
+    margin-top:1.8rem;
+  }
+  .video-row .card__fill{ aspect-ratio:3/4; }
+  @media (max-width:760px){
+    .video-row{ grid-template-columns:repeat(2, 1fr); }
+  }
+  @media (max-width:480px){
+    .video-row{ grid-template-columns:1fr; }
+  }
+
   #drawing-heading{ color:var(--globe-green); }
 
   .card{
@@ -285,6 +299,7 @@
   .card__fill svg{ width:28%; opacity:0.75; transition:transform .4s cubic-bezier(.2,.8,.3,1); }
   .card:hover .card__fill svg, .card:focus-visible .card__fill svg{ transform:scale(1.06); }
   .card__fill img, .card__fill video{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s cubic-bezier(.2,.8,.3,1); }
+  .card__fill:has(video){ border-radius:10px; }
   .card:hover .card__fill img, .card:focus-visible .card__fill img,
   .card:hover .card__fill video, .card:focus-visible .card__fill video{ transform:scale(1.04); }
   .card--drawing .card__fill{ background:repeating-linear-gradient(135deg, var(--sand) 0 10px, #efe6cf 10px 20px); }
@@ -297,8 +312,8 @@
   }
   .card__cap .t{ font-family:"Fraunces", serif; font-size:0.9rem; color:var(--cobalt-ink); display:block; }
   .card__cap .m{ font-size:0.68rem; letter-spacing:0.04em; color:var(--ink-soft); opacity:0.75; margin-top:0.15rem; display:block; }
-  #drawing-grid .card__cap .m{ display:none; }
-  #painting-grid .card__cap .m{ display:none; }
+  #drawing-grid .card__cap .m, #drawing-videos .card__cap .m{ display:none; }
+  #painting-grid .card__cap .m, #painting-videos .card__cap .m{ display:none; }
 
   /* ---------- editorial hobby sections ---------- */
   .hobby{ background:var(--sage-light); }
@@ -309,6 +324,7 @@
   .hobby .section-head{ margin-bottom:0.4rem; }
   .hobby .section-head h2{ margin-bottom:0; }
   .hobby__intro strong{ color:var(--cobalt-ink); font-weight:600; }
+  .hobby__intro a{ color:var(--cobalt); text-decoration:underline; text-underline-offset:2px; }
 
   .product__grid{
     display:grid; grid-template-columns:1fr auto; gap:clamp(1.6rem,4vw,3rem); align-items:start;

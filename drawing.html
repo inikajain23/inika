@@ -55,6 +55,7 @@
     </div>
   </div>
   <p class="hobby__intro reveal">since i was a child, my world was entertained so long as i had a pen in hand and any centimeter of scrap paper to doodle on. observations of beautiful lines in the surrounding world are always new. soft folds and textures, thoughtful design of pre-war homes, sunlight filtering through trees.</p>
+  <div class="video-row reveal" id="drawing-videos"></div>
   <div class="masonry masonry--square reveal" id="drawing-grid"></div>
 </section>
 
@@ -87,10 +88,13 @@
 (function(){
   var lb = Site.initLightbox();
 
+  var VIDEOS = [
+    {t:"sicilian summer afternoon", m:"drawing", video:"videos/sicilian-summer.mp4", poster:"images/sicilian-summer-poster.jpg"},
+    {t:"how many girls have sat here and felt -", m:"drawing", video:"videos/girls-sat-here.mp4", poster:"images/girls-sat-here-poster.jpg"},
+    {t:"sea study", m:"drawing", video:"videos/sea-study.mp4", poster:"images/sea-study-poster.jpg"}
+  ];
+
   var DRAWINGS = [
-    {t:"sicilian summer afternoon", m:"drawing", feature:true, video:"videos/sicilian-summer.mp4", poster:"images/sicilian-summer-poster.jpg"},
-    {t:"how many girls have sat here and felt -", m:"drawing", feature:true, video:"videos/girls-sat-here.mp4", poster:"images/girls-sat-here-poster.jpg"},
-    {t:"sea study", m:"drawing", feature:true, video:"videos/sea-study.mp4", poster:"images/sea-study-poster.jpg"},
     {t:"john jay in the morning", m:"drawing", img:"images/waterfront-bench.jpg", pos:"center 75%"},
     {t:"central park reader", m:"drawing", img:"images/central-park.jpg", pos:"center 75%"},
     {t:"washington sq park piano man", m:"drawing", img:"images/piano-man.jpg"},
@@ -101,9 +105,13 @@
     {t:"skate studies", m:"drawing", img:"images/skate-studies.jpg"}
   ];
 
+  var videoRow = document.getElementById("drawing-videos");
+  VIDEOS.forEach(function(item){ videoRow.appendChild(Site.card(item, lb.open)); });
+
   var grid = document.getElementById("drawing-grid");
   DRAWINGS.forEach(function(item){ grid.appendChild(Site.card(item, lb.open)); });
-  lb.setItems(DRAWINGS);
+
+  lb.setItems(VIDEOS.concat(DRAWINGS));
 
   Site.initReveal();
 })();

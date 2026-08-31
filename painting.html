@@ -51,10 +51,11 @@
 <section class="hobby hobby--painting" id="painting" aria-labelledby="painting-heading">
   <div class="section-head reveal">
     <div>
-      <h2 id="painting-heading">slower work, mostly light</h2>
+      <h2 id="painting-heading">values</h2>
     </div>
   </div>
-  <p class="hobby__intro reveal">where the drawings are quick, the paintings are the opposite — i'll sit with one for weeks. almost always about <strong>people</strong>, and whatever the light happens to be doing.</p>
+  <p class="hobby__intro reveal">where i love to sketch whats in front of me, my paintings are manifestations of what sits in my mind's eye for weeks at a time. i love the way values and hues can play and tease perception. when i work on a painting, it changes the way i interact with the world around me. if you want more on that, check out my <a href="https://substack.com/@lilearth" target="_blank" rel="noopener">substack</a>.</p>
+  <div class="video-row reveal" id="painting-videos"></div>
   <div class="masonry masonry--square reveal" id="painting-grid"></div>
 </section>
 
@@ -87,16 +88,22 @@
 (function(){
   var lb = Site.initLightbox();
 
+  var VIDEOS = [
+    {t:"my surfer girls", m:"painting", video:"videos/surfer-girls.mp4", poster:"images/surfer-girls-poster.jpg"}
+  ];
+
   var PAINTINGS = [
-    {t:"my surfer girls", m:"painting", video:"videos/surfer-girls.mp4", poster:"images/surfer-girls-poster.jpg"},
     {t:"high tide", m:"painting", img:"images/ocean-surf-painting.jpg"},
     {t:"portrait, studio light", m:"painting", img:"images/portrait-painting.jpg"},
     {t:"portrait, side light", m:"painting", img:"images/portrait-painting-alt.jpg"}
   ];
 
+  var videoRow = document.getElementById("painting-videos");
+  VIDEOS.forEach(function(item){ videoRow.appendChild(Site.card(item, lb.open)); });
+
   var grid = document.getElementById("painting-grid");
   PAINTINGS.forEach(function(item){ grid.appendChild(Site.card(item, lb.open)); });
-  lb.setItems(PAINTINGS);
+  lb.setItems(VIDEOS.concat(PAINTINGS));
 
   Site.initReveal();
 })();
