@@ -113,9 +113,13 @@
   var heroVideo = document.querySelector(".hero-video__media");
   if (heroVideo){
     heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
     heroVideo.playsInline = true;
     var tryPlay = function(){ heroVideo.play().catch(function(){}); };
     tryPlay();
+    document.addEventListener("visibilitychange", function(){
+      if (!document.hidden && heroVideo.paused) tryPlay();
+    });
     ["touchstart","click"].forEach(function(evt){
       document.addEventListener(evt, tryPlay, { once:true, passive:true });
     });

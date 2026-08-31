@@ -161,7 +161,7 @@
     transition:opacity .2s ease, border-color .2s ease;
   }
   .nav__links a:hover, .nav__links a:focus-visible{ opacity:1; border-color:var(--cobalt); }
-  @media (max-width:640px){ .nav__links{ gap:1rem; } .nav__links a{ font-size:0.72rem; } }
+  @media (max-width:640px){ .nav__links{ gap:0.55rem; flex-wrap:wrap; } .nav__links a{ font-size:0.85rem; } }
 
   /* ---------- intro ---------- */
   .hero-video{
@@ -209,6 +209,10 @@
     line-height:1.7;
     color:#faf6ec;
     text-wrap:balance;
+  }
+  @media (max-width:640px){
+    .hero-video__subtitle{ font-size:1rem; }
+    .hero-video__bio{ font-size:1.1rem; line-height:1.65; }
   }
 
   /* ---------- signature piece ---------- */
@@ -348,7 +352,7 @@
   .product__photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   @media (max-width:700px){
     .product__grid{ grid-template-columns:1fr; }
-    .product__photo{ order:-1; width:120px; }
+    .product__photo{ order:-1; width:120px; margin:0 auto; }
   }
 
   /* ---------- footer ---------- */
