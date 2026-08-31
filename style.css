@@ -294,7 +294,9 @@
   .hobby--painting{ background:var(--foam); }
   .hobby--product{ background:var(--pale-blue); }
 
-  .hobby__intro{ max-width:var(--measure); font-size:1.05rem; }
+  .hobby__intro{ max-width:100%; font-size:1.05rem; text-wrap:balance; }
+  .hobby .section-head{ margin-bottom:0.4rem; }
+  .hobby .section-head h2{ margin-bottom:0; }
   .hobby__intro strong{ color:var(--cobalt-ink); font-weight:600; }
 
   .product__grid{
