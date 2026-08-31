@@ -6,8 +6,9 @@ var Site = (function(){
     el.type = "button";
     el.className = "card card--" + item.m + (item.feature ? " card--feature" : "");
     el.setAttribute("data-medium", item.m);
+    var posStyle = item.pos ? ' style="object-position:' + item.pos + '"' : '';
     var fill = item.img
-      ? '<img src="' + item.img + '" alt="" loading="lazy">'
+      ? '<img src="' + item.img + '" alt=""' + posStyle + ' loading="lazy">'
       : '<svg aria-hidden="true"><use href="#' + ICONS[item.m] + '"/></svg>';
     el.innerHTML =
       '<span class="card__fill">' + fill + '</span>' +
