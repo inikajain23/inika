@@ -20,10 +20,9 @@
 
 
 <section class="hero-video" aria-label="Welcome">
-  <video class="hero-video__media" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+  <video class="hero-video__media" autoplay muted loop playsinline webkit-playsinline="true" preload="auto" poster="images/hero-poster.jpg">
     <source src="videos/hero.mp4" type="video/mp4">
   </video>
-  <div class="hero-video__scrim" aria-hidden="true"></div>
   <div class="hero-video__chrome">
     <a class="marquee" id="top" href="index.html" aria-label="inika, home">
   <div class="marquee__track">
@@ -110,6 +109,17 @@
 <script src="globe.js"></script>
 <script>
 (function(){
+  var heroVideo = document.querySelector(".hero-video__media");
+  if (heroVideo){
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+    var tryPlay = function(){ heroVideo.play().catch(function(){}); };
+    tryPlay();
+    ["touchstart","click"].forEach(function(evt){
+      document.addEventListener(evt, tryPlay, { once:true, passive:true });
+    });
+  }
+
   var openLightbox = Site.initLightbox();
 
   var WORK = [
