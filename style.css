@@ -13,7 +13,7 @@
     --cobalt:     #0047ab;
     --cobalt-ink: #063a82;
     --globe-green: #2f6b46;
-    --sage-light: #d8e6dd;
+    --sage-light: #dbe4cf;
     --pale-blue: #eef1f7;
     --butter:     #faf3d9;
     --butter-ink: #8a6d1f;
@@ -115,6 +115,27 @@
   .cloud-icon{ display:inline-block; aspect-ratio:1445/1053; background-image:var(--cloud-img); background-size:contain; background-repeat:no-repeat; background-position:center; }
   .marquee__item .cloud-icon{ width:clamp(52px,6vw,96px); opacity:0.9; flex:none; }
 
+  .marquee .signature-icon,
+  .marquee .cloud-icon,
+  .nav__mark .cloud-icon{
+    background-image:none;
+    background-color:var(--ink);
+    opacity:0.9;
+  }
+  .marquee .signature-icon{
+    -webkit-mask-image:var(--signature-img); mask-image:var(--signature-img);
+    -webkit-mask-size:contain; mask-size:contain;
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+  }
+  .marquee .cloud-icon,
+  .nav__mark .cloud-icon{
+    -webkit-mask-image:var(--cloud-img); mask-image:var(--cloud-img);
+    -webkit-mask-size:contain; mask-size:contain;
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+  }
+
   /* ---------- nav ---------- */
   .nav{
     position:sticky; top:0; z-index:40;
@@ -171,7 +192,7 @@
     font-style:italic;
     font-weight:480;
     font-size:clamp(2.2rem, 1.6rem + 3.2vw, 4.2rem);
-    color:#faf6ec;
+    color:var(--globe-green);
     text-wrap:balance;
   }
   .hero-video__subtitle{
