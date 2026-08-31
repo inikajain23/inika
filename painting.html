@@ -55,7 +55,7 @@
     </div>
   </div>
   <p class="hobby__intro reveal">where the drawings are quick, the paintings are the opposite — i'll sit with one for weeks. almost always about <strong>people</strong>, and whatever the light happens to be doing.</p>
-  <div class="split reveal" id="painting-split"></div>
+  <div class="masonry masonry--square reveal" id="painting-grid"></div>
 </section>
 
 <svg class="tide" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0,10 C40,20 60,0 100,10 C140,20 160,0 200,10 C240,20 260,0 300,10 C340,20 360,0 400,10" filter="url(#sketchy)"/></svg>
@@ -86,21 +86,13 @@
   var openLightbox = Site.initLightbox();
 
   var PAINTINGS = [
-    {t:"high tide", m:"painting", feature:true, img:"images/ocean-surf-painting.jpg"},
+    {t:"high tide", m:"painting", img:"images/ocean-surf-painting.jpg"},
     {t:"portrait, studio light", m:"painting", img:"images/portrait-painting.jpg"},
     {t:"portrait, side light", m:"painting", img:"images/portrait-painting-alt.jpg"}
   ];
 
-  var pSplit = document.getElementById("painting-split");
-  var feature = document.createElement("div");
-  feature.className = "feature";
-  feature.appendChild(Site.card(PAINTINGS[0], openLightbox));
-  var side = document.createElement("div");
-  side.className = "side";
-  side.appendChild(Site.card(PAINTINGS[1], openLightbox));
-  side.appendChild(Site.card(PAINTINGS[2], openLightbox));
-  pSplit.appendChild(feature);
-  pSplit.appendChild(side);
+  var grid = document.getElementById("painting-grid");
+  PAINTINGS.forEach(function(item){ grid.appendChild(Site.card(item, openLightbox)); });
 
   Site.initReveal();
 })();
