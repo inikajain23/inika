@@ -182,7 +182,7 @@
   }
   .hero-video__copy{
     position:absolute; left:0; right:0; top:0; z-index:2;
-    padding:34vh 1.5rem 0;
+    padding:46vh 1.5rem 0;
     display:flex; flex-direction:column; align-items:center; gap:1.3rem;
     text-align:center;
   }
@@ -192,7 +192,7 @@
     font-style:italic;
     font-weight:480;
     font-size:clamp(2.2rem, 1.6rem + 3.2vw, 4.2rem);
-    color:var(--globe-green);
+    color:#faf6ec;
     text-wrap:balance;
   }
   .hero-video__subtitle{
@@ -203,7 +203,7 @@
     color:#faf6ec;
   }
   .hero-video__bio{
-    margin:2.2rem 0 0;
+    margin:3rem 0 0;
     max-width:56ch;
     font-size:1rem;
     line-height:1.7;
