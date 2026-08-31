@@ -120,7 +120,7 @@
     });
   }
 
-  var openLightbox = Site.initLightbox();
+  var lb = Site.initLightbox();
 
   var WORK = [
     {t:"central park reader", m:"drawing", img:"images/central-park.jpg", pos:"center 75%"},
@@ -134,7 +134,8 @@
   ];
 
   var masonry = document.getElementById("masonry");
-  WORK.forEach(function(item){ masonry.appendChild(Site.card(item, openLightbox)); });
+  WORK.forEach(function(item){ masonry.appendChild(Site.card(item, lb.open)); });
+  lb.setItems(WORK);
 
   Site.initFilters("#masonry");
   Site.initReveal();

@@ -70,6 +70,8 @@
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
   <button class="lightbox__close" id="lightbox-close" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous">&#8249;</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next">&#8250;</button>
   <div class="lightbox__panel">
     <div class="card__fill" id="lightbox-fill"></div>
     <div class="lightbox__body">
@@ -83,20 +85,25 @@
 <script src="main.js"></script>
 <script>
 (function(){
-  var openLightbox = Site.initLightbox();
+  var lb = Site.initLightbox();
 
   var DRAWINGS = [
     {t:"john jay in the morning", m:"drawing", img:"images/waterfront-bench.jpg", pos:"center 75%"},
     {t:"central park reader", m:"drawing", img:"images/central-park.jpg", pos:"center 75%"},
+    {t:"washington sq park piano man", m:"drawing", img:"images/piano-man.jpg"},
     {t:"mochi, relaxing", m:"drawing", img:"images/mochi-relaxing.jpg"},
     {t:"hamilton plays amongst the clovers", m:"drawing", img:"images/hamilton-clovers.jpg"},
     {t:"134 riggs", m:"drawing", img:"images/134-riggs.jpg"},
     {t:"enchantments", m:"drawing", img:"images/enchantments.jpg"},
-    {t:"skate studies", m:"drawing", img:"images/skate-studies.jpg"}
+    {t:"skate studies", m:"drawing", img:"images/skate-studies.jpg"},
+    {t:"sicilian summer afternoon", m:"drawing", feature:true, video:"videos/sicilian-summer.mp4", poster:"images/sicilian-summer-poster.jpg"},
+    {t:"how many girls have sat here and felt -", m:"drawing", feature:true, video:"videos/girls-sat-here.mp4", poster:"images/girls-sat-here-poster.jpg"},
+    {t:"sea study", m:"drawing", feature:true, video:"videos/sea-study.mp4", poster:"images/sea-study-poster.jpg"}
   ];
 
   var grid = document.getElementById("drawing-grid");
-  DRAWINGS.forEach(function(item){ grid.appendChild(Site.card(item, openLightbox)); });
+  DRAWINGS.forEach(function(item){ grid.appendChild(Site.card(item, lb.open)); });
+  lb.setItems(DRAWINGS);
 
   Site.initReveal();
 })();

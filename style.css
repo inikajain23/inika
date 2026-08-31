@@ -263,6 +263,7 @@
   }
   .masonry--square{ margin-top:1.8rem; }
   .masonry--square .card__fill{ aspect-ratio:1/1; }
+  .masonry--square .card--feature .card__fill{ aspect-ratio:3/4; }
 
   #drawing-heading{ color:var(--globe-green); }
 
@@ -283,8 +284,9 @@
   .card:hover .card__fill, .card:focus-visible .card__fill{ filter:brightness(0.97); }
   .card__fill svg{ width:28%; opacity:0.75; transition:transform .4s cubic-bezier(.2,.8,.3,1); }
   .card:hover .card__fill svg, .card:focus-visible .card__fill svg{ transform:scale(1.06); }
-  .card__fill img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s cubic-bezier(.2,.8,.3,1); }
-  .card:hover .card__fill img, .card:focus-visible .card__fill img{ transform:scale(1.04); }
+  .card__fill img, .card__fill video{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s cubic-bezier(.2,.8,.3,1); }
+  .card:hover .card__fill img, .card:focus-visible .card__fill img,
+  .card:hover .card__fill video, .card:focus-visible .card__fill video{ transform:scale(1.04); }
   .card--drawing .card__fill{ background:repeating-linear-gradient(135deg, var(--sand) 0 10px, #efe6cf 10px 20px); }
   .card--painting .card__fill{ background:linear-gradient(155deg, var(--foam), var(--sea) 70%); }
   .card--drawing svg{ color:var(--cobalt-ink); }
@@ -296,6 +298,7 @@
   .card__cap .t{ font-family:"Fraunces", serif; font-size:0.9rem; color:var(--cobalt-ink); display:block; }
   .card__cap .m{ font-size:0.68rem; letter-spacing:0.04em; color:var(--ink-soft); opacity:0.75; margin-top:0.15rem; display:block; }
   #drawing-grid .card__cap .m{ display:none; }
+  #painting-grid .card__cap .m{ display:none; }
 
   /* ---------- editorial hobby sections ---------- */
   .hobby{ background:var(--sage-light); }
@@ -367,7 +370,8 @@
     width:auto; height:auto;
     aspect-ratio:unset;
   }
-  .lightbox__panel .card__fill img{
+  .lightbox__panel .card__fill img,
+  .lightbox__panel .card__fill video{
     display:block;
     width:auto; height:auto;
     max-width:min(88vw, 840px);
@@ -377,6 +381,20 @@
   .lightbox__body{ flex:0 0 auto; align-self:stretch; padding:1.2rem 1.4rem 1.4rem; }
   .lightbox__body .t{ font-family:"Fraunces", serif; font-size:1.15rem; color:var(--cobalt-ink); }
   .lightbox__body .m{ font-size:0.7rem; letter-spacing:0.05em; color:var(--ink-soft); }
+  .lightbox__nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:none; border:none; color:var(--foam);
+    font-size:2.6rem; line-height:1; cursor:pointer;
+    padding:0.5rem 0.7rem;
+    text-shadow:0 1px 6px rgba(0,0,0,0.4);
+    transition:opacity .15s ease;
+  }
+  .lightbox__nav:hover, .lightbox__nav:focus-visible{ opacity:0.7; }
+  .lightbox__nav--prev{ left:0.5vw; }
+  .lightbox__nav--next{ right:0.5vw; }
+  @media (max-width:640px){
+    .lightbox__nav{ font-size:2rem; padding:0.4rem; }
+  }
   .lightbox__close{
     position:absolute; top:1.4rem; right:1.6vw;
     background:none; border:none; color:var(--foam);
