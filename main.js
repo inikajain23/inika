@@ -29,7 +29,7 @@ var Site = (function(){
       lbFill.innerHTML = item.img
         ? '<img src="' + item.img + '" alt="">'
         : '<svg style="width:22%;opacity:.8" aria-hidden="true"><use href="#' + ICONS[item.m] + '"/></svg>';
-      lbFill.parentElement.className = "card--" + item.m;
+      lbFill.parentElement.className = "lightbox__panel card--" + item.m;
       lbTitle.textContent = item.t;
       lbMedium.textContent = item.img ? item.m : item.m + " — placeholder";
       lightbox.classList.add("is-open");

@@ -336,19 +336,34 @@
   .lightbox{
     position:fixed; inset:0; z-index:100;
     display:none; align-items:center; justify-content:center;
-    padding:5vh 5vw;
-    background:rgba(15,26,22,0.7);
+    padding:4vh 4vw;
+    background:rgba(15,26,22,0.82);
   }
   .lightbox.is-open{ display:flex; }
   .lightbox__panel{
     background:var(--sand);
     border-radius:4px;
-    max-width:520px; width:100%;
+    max-width:min(92vw, 880px);
+    max-height:90vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     overflow:hidden;
     box-shadow:0 30px 60px rgba(0,0,0,0.35);
   }
-  .lightbox__panel .card__fill{ height:320px; }
-  .lightbox__body{ padding:1.2rem 1.4rem 1.4rem; }
+  .lightbox__panel .card__fill{
+    display:block;
+    width:auto; height:auto;
+    aspect-ratio:unset;
+  }
+  .lightbox__panel .card__fill img{
+    display:block;
+    width:auto; height:auto;
+    max-width:min(88vw, 840px);
+    max-height:calc(90vh - 5.5rem);
+    object-fit:contain;
+  }
+  .lightbox__body{ flex:0 0 auto; align-self:stretch; padding:1.2rem 1.4rem 1.4rem; }
   .lightbox__body .t{ font-family:"Fraunces", serif; font-size:1.15rem; color:var(--cobalt-ink); }
   .lightbox__body .m{ font-size:0.7rem; letter-spacing:0.05em; color:var(--ink-soft); }
   .lightbox__close{
