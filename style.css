@@ -264,7 +264,7 @@
   .masonry--square{ margin-top:1.8rem; }
   .masonry--square .card__fill{ aspect-ratio:1/1; }
 
-  #drawing-heading{ color:var(--globe-green); max-width:15ch; }
+  #drawing-heading{ color:var(--globe-green); }
 
   .card{
     display:flex; flex-direction:column;
