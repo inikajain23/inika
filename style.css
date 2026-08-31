@@ -218,6 +218,7 @@
 
   /* ---------- section shell ---------- */
   section{ position:relative; z-index:2; padding:3.2rem var(--edge); }
+  h2{ font-size:var(--fs-h2); }
   .section-head{
     display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap;
     margin-bottom:1.6rem;
@@ -330,9 +331,9 @@
     display:grid; grid-template-columns:1fr auto; gap:clamp(1.6rem,4vw,3rem); align-items:start;
   }
   .product__text h2{
-    font-size:clamp(1.25rem, 1.05rem + 1vw, 1.75rem);
     margin:0.5rem 0 1.1rem;
     color:var(--butter-ink);
+    text-wrap:balance;
   }
   .product__text .hobby__intro{ margin:0 0 1.1rem; }
   .product__text .hobby__intro:last-of-type{ margin-bottom:0; }
