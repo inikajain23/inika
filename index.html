@@ -160,21 +160,9 @@
   }
 
   /* ---------- signature piece ---------- */
-  .signature{ padding:0 var(--edge) 3rem; }
-  .signature__frame{
-    max-width:920px; margin:0 auto;
-    background:var(--sand);
-    border:1px solid var(--sand-line);
-    border-radius:6px;
-    overflow:hidden;
-    box-shadow:0 1px 2px rgba(29,43,38,0.08);
-  }
+  .signature{ padding:0 var(--edge) 2rem; display:flex; justify-content:center; }
+  .signature__frame{ width:100%; max-width:300px; margin:0 auto; }
   .signature__frame svg{ display:block; width:100%; height:auto; color:var(--cobalt); }
-  .signature__caption{
-    text-align:center; margin:0.7rem 0 0;
-    font-size:0.72rem; letter-spacing:0.04em;
-    color:var(--ink-soft); opacity:0.7;
-  }
 
   /* ---------- section shell ---------- */
   section{ position:relative; z-index:2; padding:3.2rem var(--edge); }
@@ -243,10 +231,8 @@
   .card:hover .card__fill img, .card:focus-visible .card__fill img{ transform:scale(1.04); }
   .card--drawing .card__fill{ background:repeating-linear-gradient(135deg, var(--sand) 0 10px, #efe6cf 10px 20px); }
   .card--painting .card__fill{ background:linear-gradient(155deg, var(--foam), var(--sea) 70%); }
-  .card--photography .card__fill{ background:linear-gradient(160deg, var(--ink) 0%, var(--sea-deep) 130%); }
   .card--drawing svg{ color:var(--cobalt-ink); }
   .card--painting svg{ color:var(--cobalt-ink); }
-  .card--photography svg{ color:var(--foam); }
 
   .card__cap{
     display:block; margin-top:0.7rem;
@@ -254,22 +240,12 @@
   .card__cap .t{ font-family:"Fraunces", serif; font-size:0.9rem; color:var(--cobalt-ink); display:block; }
   .card__cap .m{ font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); opacity:0.75; margin-top:0.15rem; display:block; }
 
-  .placeholder-note{
-    font-size:0.75rem; color:var(--ink-soft); opacity:0.75; margin:2rem 0 0;
-  }
-
   /* ---------- editorial hobby sections ---------- */
   .hobby{ background:var(--sand); }
   .hobby--painting{ background:var(--foam); }
-  .hobby--photography{ background:var(--ink); color:var(--foam); }
-  .hobby--photography h2, .hobby--photography .eyebrow{ color:var(--foam); opacity:0.9; }
-  .hobby--photography p{ color:#cfe3da; }
 
   .hobby__intro{ max-width:var(--measure); font-size:1.05rem; }
   .hobby__intro strong{ color:var(--cobalt-ink); font-weight:600; }
-  .hobby--photography .hobby__intro strong{ color:var(--foam); }
-  .hobby--photography .card__cap .t{ color:var(--foam); }
-  .hobby--photography .card__cap .m{ color:#cfe3da; opacity:0.7; }
 
   .filmstrip{
     display:flex; gap:1rem; overflow-x:auto; padding:1.6rem 0 0.5rem;
@@ -286,12 +262,6 @@
   .split .side{ display:grid; gap:1.4rem; }
   .split .side .card__fill{ height:160px; }
   @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
-
-  .strip{
-    display:grid; grid-auto-flow:column; grid-auto-columns:minmax(220px,1fr);
-    gap:1.2rem; overflow-x:auto; margin-top:1.8rem; padding-bottom:0.4rem;
-  }
-  .strip .card__fill{ height:170px; }
 
   /* ---------- footer ---------- */
   footer{
@@ -357,7 +327,6 @@
   <ul class="nav__links">
     <li><a href="#drawing">Drawing</a></li>
     <li><a href="#painting">Painting</a></li>
-    <li><a href="#photography">Photography</a></li>
   </ul>
 </nav>
 
@@ -369,7 +338,6 @@
     </filter>
     <symbol id="icon-pencil" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></g></symbol>
     <symbol id="icon-brush" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15c-2 1-3 3-3 5 3 0 5-1 6-3"/><path d="M12 12 19 5c1-1 3-1 4 0s1 3 0 4l-7 7"/><path d="M9 15l3-3"/></g></symbol>
-    <symbol id="icon-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2h6l2 2h3v11H4Z"/><circle cx="12" cy="13.5" r="3.4"/></g></symbol>
   </defs>
 </svg>
 
@@ -380,9 +348,8 @@
 
 <section class="signature reveal" aria-label="An illustrated hello">
   <div class="signature__frame">
-    <svg id="globe-piece" viewBox="0 0 1920 1080" role="img" aria-label="A hand-drawn animation of a globe spinning, with a girl standing on top of it waving hello"></svg>
+    <svg id="globe-piece" viewBox="600 170 720 800" role="img" aria-label="A hand-drawn animation of a globe spinning, with a girl standing on top of it waving hello"></svg>
   </div>
-  <p class="signature__caption">a little hello, drawn and looped</p>
 </section>
 
 <section aria-labelledby="work-heading" style="padding-top:0.5rem;">
@@ -395,12 +362,10 @@
       <button type="button" data-filter="all" aria-pressed="true">All</button>
       <button type="button" data-filter="drawing" aria-pressed="false">Drawing</button>
       <button type="button" data-filter="painting" aria-pressed="false">Painting</button>
-      <button type="button" data-filter="photography" aria-pressed="false">Photography</button>
     </div>
   </div>
 
   <div class="masonry reveal" id="masonry"></div>
-  <p class="placeholder-note">Photography pieces are still placeholders — more on the way.</p>
 </section>
 
 <svg class="tide" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0,10 C40,20 60,0 100,10 C140,20 160,0 200,10 C240,20 260,0 300,10 C340,20 360,0 400,10" filter="url(#sketchy)"/></svg>
@@ -427,19 +392,6 @@
   </div>
   <p class="hobby__intro reveal">Where the drawings are quick, the paintings are the opposite — I'll sit with one for weeks. Almost always about <strong>people</strong>, and whatever the light happens to be doing.</p>
   <div class="split reveal" id="painting-split"></div>
-</section>
-
-<svg class="tide" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0,10 C40,20 60,0 100,10 C140,20 160,0 200,10 C240,20 260,0 300,10 C340,20 360,0 400,10" filter="url(#sketchy)"/></svg>
-
-<section class="hobby hobby--photography" id="photography" aria-labelledby="photo-heading">
-  <div class="section-head reveal">
-    <div>
-      <p class="eyebrow">03 · Photography</p>
-      <h2 id="photo-heading">Keeping track of the light</h2>
-    </div>
-  </div>
-  <p class="hobby__intro reveal">A camera is just a faster way of doing what the paintings do — noticing the light before it's gone.</p>
-  <div class="strip reveal" id="photo-strip"></div>
 </section>
 
 <footer>
@@ -758,7 +710,7 @@
 
 <script>
 (function(){
-  var ICONS = { drawing:"icon-pencil", painting:"icon-brush", photography:"icon-camera" };
+  var ICONS = { drawing:"icon-pencil", painting:"icon-brush" };
 
   var WORK = [
     {t:"Central Park, July '26", m:"drawing", img:"images/central-park.jpg"},
@@ -766,10 +718,8 @@
     {t:"High tide", m:"painting", feature:true, img:"images/ocean-surf-painting.jpg"},
     {t:"Mochi, relaxing", m:"drawing", img:"images/mochi-relaxing.jpg"},
     {t:"134 Riggs", m:"drawing", img:"images/134-riggs.jpg"},
-    {t:"Streetlight through fog", m:"photography"},
     {t:"Hamilton plays amongst the clovers", m:"drawing", img:"images/hamilton-clovers.jpg"},
     {t:"Enchantments", m:"drawing", img:"images/enchantments.jpg"},
-    {t:"Market stall, Sunday", m:"photography"},
     {t:"Skate studies", m:"drawing", img:"images/skate-studies.jpg"}
   ];
 
@@ -785,14 +735,6 @@
     {t:"High tide", m:"painting", feature:true, img:"images/ocean-surf-painting.jpg"},
     {t:"Portrait, studio light", m:"painting", img:"images/portrait-painting.jpg"},
     {t:"Portrait, side light", m:"painting", img:"images/portrait-painting-alt.jpg"}
-  ];
-
-  var PHOTOS = [
-    {t:"Low tide, unedited", m:"photography"},
-    {t:"Streetlight through fog", m:"photography"},
-    {t:"Grandmother's hands", m:"photography"},
-    {t:"Salt flats, overexposed on purpose", m:"photography"},
-    {t:"Market stall, Sunday", m:"photography"}
   ];
 
   function card(item){
@@ -826,9 +768,6 @@
   side.appendChild(card(PAINTINGS[2]));
   pSplit.appendChild(feature);
   pSplit.appendChild(side);
-
-  var phStrip = document.getElementById("photo-strip");
-  PHOTOS.forEach(function(item){ phStrip.appendChild(card(item)); });
 
   var filterBtns = document.querySelectorAll(".filters button");
   filterBtns.forEach(function(btn){
