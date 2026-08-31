@@ -145,65 +145,55 @@
   /* ---------- intro ---------- */
   .hero-video{
     position:relative;
-    height:100vh;
-    min-height:640px;
     overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-    padding-bottom:12vh;
   }
   .hero-video__media{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;
+    position:relative;
+    display:block;
+    width:100%; height:auto;
     z-index:0;
   }
   .hero-video__scrim{
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(10,20,17,0) 55%, rgba(10,20,17,0.42) 100%);
+    background:linear-gradient(180deg, rgba(10,20,17,0.55) 0%, rgba(10,20,17,0.12) 38%, rgba(10,20,17,0) 55%, rgba(10,20,17,0.35) 100%);
     z-index:1;
   }
   .hero-video__chrome{
     position:absolute; top:0; left:0; right:0;
     z-index:5;
   }
+  .hero-video__copy{
+    position:absolute; left:0; right:0; top:0; z-index:2;
+    padding:34vh 1.5rem 0;
+    display:flex; flex-direction:column; align-items:center; gap:1.3rem;
+    text-align:center;
+  }
   .hero-video__title{
-    position:relative; z-index:2;
     margin:0;
-    padding:0 1.5rem;
     font-family:"Fraunces", serif;
     font-style:italic;
     font-weight:480;
     font-size:clamp(2.2rem, 1.6rem + 3.2vw, 4.2rem);
     color:#faf6ec;
-    text-align:center;
     text-wrap:balance;
     text-shadow:0 2px 14px rgba(10,20,17,0.3);
   }
   .hero-video__subtitle{
-    position:absolute; left:0; right:0; top:58%; z-index:2;
     margin:0;
-    padding:0 1.5rem;
     font-size:0.85rem;
     font-weight:400;
     letter-spacing:0.08em;
     color:#faf6ec;
-    text-align:center;
     text-shadow:0 1px 10px rgba(10,20,17,0.55), 0 1px 3px rgba(10,20,17,0.6);
   }
-
-  .bio{
-    position:relative; z-index:2;
-    display:flex; justify-content:center;
-    text-align:center;
-    padding:1.2rem var(--edge) 1rem;
-  }
-  .bio p{
-    max-width:82ch;
-    font-size:1.1rem;
-    line-height:1.7;
-    color:var(--ink-soft);
+  .hero-video__bio{
     margin:0;
+    max-width:56ch;
+    font-size:1rem;
+    line-height:1.7;
+    color:#faf6ec;
     text-wrap:balance;
+    text-shadow:0 1px 10px rgba(10,20,17,0.55), 0 1px 3px rgba(10,20,17,0.6);
   }
 
   /* ---------- signature piece ---------- */
