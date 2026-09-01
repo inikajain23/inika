@@ -56,6 +56,10 @@
     </div>
   </div>
   <p class="hobby__intro reveal">since i was a child, my world was entertained so long as i had a pen in hand and any centimeter of scrap paper to doodle on. observations of beautiful lines in the surrounding world are always new. soft folds and textures, thoughtful design of pre-war homes, sunlight filtering through trees.</p>
+  <button class="flipbook-cover reveal" id="flipbook-open" aria-haspopup="dialog">
+    <span class="flipbook-cover__fill"><img src="images/sketchbook-page-01.jpg" alt=""></span>
+    <span class="flipbook-cover__label">flip through my sketchbook</span>
+  </button>
   <div class="video-row reveal" id="drawing-videos"></div>
   <div class="masonry masonry--square reveal" id="drawing-grid"></div>
 </section>
@@ -81,6 +85,17 @@
       <span class="m" id="lightbox-medium"></span>
     </div>
   </div>
+</div>
+
+
+<div class="flipbook" id="flipbook" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Sketchbook pages">
+  <button class="flipbook__close" id="flipbook-close" aria-label="Close">×</button>
+  <button class="flipbook__nav flipbook__nav--prev" id="flipbook-prev" aria-label="Previous page">&#8249;</button>
+  <button class="flipbook__nav flipbook__nav--next" id="flipbook-next" aria-label="Next page">&#8250;</button>
+  <div class="flipbook__page">
+    <img id="flipbook-img" src="" alt="a page from inika's sketchbook">
+  </div>
+  <div class="flipbook__count" id="flipbook-count"></div>
 </div>
 
 
@@ -113,6 +128,20 @@
   DRAWINGS.forEach(function(item){ grid.appendChild(Site.card(item, lb.open)); });
 
   lb.setItems(VIDEOS.concat(DRAWINGS));
+
+  Site.initFlipbook("#flipbook-open", [
+    "images/sketchbook-page-01.jpg",
+    "images/sketchbook-page-02.jpg",
+    "images/sketchbook-page-03.jpg",
+    "images/sketchbook-page-04.jpg",
+    "images/sketchbook-page-05.jpg",
+    "images/sketchbook-page-06.jpg",
+    "images/sketchbook-page-07.jpg",
+    "images/sketchbook-page-08.jpg",
+    "images/sketchbook-page-09.jpg",
+    "images/sketchbook-page-10.jpg",
+    "images/sketchbook-page-11.jpg"
+  ]);
 
   Site.initReveal();
 })();

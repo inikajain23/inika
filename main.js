@@ -119,6 +119,52 @@ var Site = (function(){
     });
   }
 
+  function initFlipbook(openSelector, pages){
+    var openBtn = document.querySelector(openSelector);
+    var modal = document.getElementById("flipbook");
+    if (!openBtn || !modal || !pages || !pages.length) return;
+    var img = document.getElementById("flipbook-img");
+    var count = document.getElementById("flipbook-count");
+    var closeBtn = document.getElementById("flipbook-close");
+    var prevBtn = document.getElementById("flipbook-prev");
+    var nextBtn = document.getElementById("flipbook-next");
+    var index = 0;
+
+    function render(){
+      img.classList.add("is-fading");
+      window.setTimeout(function(){
+        img.src = pages[index];
+        count.textContent = (index + 1) + " / " + pages.length;
+        img.classList.remove("is-fading");
+      }, 120);
+    }
+    function open(){
+      index = 0;
+      img.src = pages[0];
+      count.textContent = "1 / " + pages.length;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden","false");
+    }
+    function close(){
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden","true");
+    }
+    function next(){ index = (index + 1) % pages.length; render(); }
+    function prev(){ index = (index - 1 + pages.length) % pages.length; render(); }
+
+    openBtn.addEventListener("click", open);
+    closeBtn.addEventListener("click", close);
+    nextBtn.addEventListener("click", next);
+    prevBtn.addEventListener("click", prev);
+    modal.addEventListener("click", function(e){ if (e.target === modal) close(); });
+    document.addEventListener("keydown", function(e){
+      if (!modal.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  }
+
   function initReveal(){
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var reveals = document.querySelectorAll(".reveal");
@@ -134,5 +180,5 @@ var Site = (function(){
     }
   }
 
-  return { card: card, initLightbox: initLightbox, initFilters: initFilters, initReveal: initReveal };
+  return { card: card, initLightbox: initLightbox, initFilters: initFilters, initFlipbook: initFlipbook, initReveal: initReveal };
 })();
